@@ -17,22 +17,21 @@ class VinylController extends AbstractController {
             ['Artist' => 'Bot ', 'Titre' => ' Rapiera'],
             ['Artist' => 'Bolo pix ', 'Titre' => 'On my way'],
         ];
+        // dump($tracks);
         return $this->render('pages/homepage.html.twig',[
             'Title' => 'PB & Jams',
             'tracks' => $tracks,
         ]);
     }
 
-    #[Route('/browse/{slug}')]
-    public function browse(String $slug = null): Response 
+    #[Route('/browse/{recherche}')]
+    public function browse(String $recherche = null): Response 
     {
-
-        if ($slug) {
-            $title = 'Title: Never Give Up Geek '.u(str_replace('_',' ', $slug))->title(true);
-        }else{
-            $title = 'All Genres';
-        }
-        return new Response( $title );
+        $genre = $recherche ? u(str_replace('_',' ', $recherche))->title(true) : null;
+        
+        return $this->render('pages/browse.html.twig',[
+            'genre' => $genre,
+        ]);
     }
 
 }
