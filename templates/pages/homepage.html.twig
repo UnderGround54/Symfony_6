@@ -42,9 +42,11 @@
                 Musics ( La génération 2000 )
             </h2>
             {% for track in tracks %}
-            <div class="song-list">
+            <div class="song-list" {{ stimulus_controller('musicControl', {
+                infoUrl: path('api_musics',{ id: loop.index })
+            }) }}>
                 <div class="d-flex mb-3">
-                    <a href="#">
+                    <a href="#" {{ stimulus_action('musicControl', 'play')}} >
                         <i class="fas fa-play me-3"></i>
                     </a>
                     <span class="song-details">{{ track.Artist }} - {{ track.Titre }}</span>
@@ -57,7 +59,7 @@
                 </div>
             </div>
             {% endfor %}
-            <button type="button" class="btn btn-success"><i class="fas fa-plus"></i> Add a song</button>
+            <button type="button" class="btn btn-success"><i class="fas fa-plus"></i> Ajouter music </button>
         </div>
     </div>
 </div>

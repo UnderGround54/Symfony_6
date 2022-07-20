@@ -4,13 +4,12 @@ namespace App\Controller;
 
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MusicsApiController extends AbstractController{
 
-    #[Route('/api/musics/{id<\d+>}', methods: ['GET'])]
+    #[Route('/api/musics/{id<\d+>}', methods: ['GET'], name: 'api_musics')]
     public function getMusics(int $id, LoggerInterface $logger): Response {
         $musics = [
             'id' => $id,
@@ -18,7 +17,7 @@ class MusicsApiController extends AbstractController{
             'url' => 'https://symfonycasts.s3.amazonaws.com/sample.mp3'
         ];
 
-        $logger->info('api symfony 5 {musics}', [ 
+        $logger->info('API music id : {musics}', [ 
             'musics' => $id,
         ]);
         // return new JsonResponse($musics);

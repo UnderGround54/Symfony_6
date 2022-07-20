@@ -19,7 +19,7 @@ class MusicsController extends AbstractController {
     public function homepage(): Response {
         // dump($tracks);
         return $this->render('pages/homepage.html.twig',[
-            'Title' => 'PB & Jams',
+            'Title' => 'Hira Malagasy',
             'tracks' => $this->tracks,
         ]);
     }
