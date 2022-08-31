@@ -25,7 +25,11 @@
                 <div class="mixed-vinyl-container p-3 text-center">
                     <img src="{{ asset('apple-touch-icon.png') }}" data-src="https://via.placeholder.com/300" alt="Square placeholder img">
                     <p class="mt-2"><strong>{{ track.Artist }}</strong></p>
-                    <span>{{ track.Genre }}</span> | <span>{{ track.Titre }}</span>
+                    <span>{{ track.Genre }}</span>
+                    |
+                    <span>{{ track.Titre }}</span>
+                    |
+                    <span>{{ track.createdAt|date('d-m-Y') }}</span>
                 </div>
             </div>
         {% endfor %}
