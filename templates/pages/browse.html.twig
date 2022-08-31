@@ -24,10 +24,10 @@
             <div class="col col-md-4">
                 <div class="mixed-vinyl-container p-3 text-center">
                     <img src="{{ asset('apple-touch-icon.png') }}" data-src="https://via.placeholder.com/300" alt="Square placeholder img">
-                    <p class="mt-2"><strong>{{ track.Artist }}</strong></p>
-                    <span>{{ track.Genre }}</span>
+                    <p class="mt-2"><strong>{{ track.title }}</strong></p>
+                    <span>{{ track.trackCount }} tracks</span>
                     |
-                    <span>{{ track.Titre }}</span>
+                    <span>{{ track.genre }}</span>
                     |
                     <span>{{ track.createdAt|ago }}</span>
                 </div>

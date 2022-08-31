@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Service\MixRepository;
 use function Symfony\Component\String\u;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,15 +26,13 @@ class MusicsController extends AbstractController {
     }
 
     #[Route('/browse/{recherche}', name: 'browse')]
-    public function browse(String $recherche = null): Response 
+    public function browse(MixRepository $tracks,String $recherche = null): Response 
     {
-        
         $genre = $recherche ? u(str_replace('_',' ', $recherche))->title(true) : null;
-        $tracks = $this->getMixes();
-
+        $mixs = $tracks->findAll();
         return $this->render('pages/browse.html.twig',[
             'genre' => $genre,
-            'tracks' => $tracks,
+            'tracks' => $mixs,
         ]);
     }
 
