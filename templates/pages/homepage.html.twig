@@ -49,6 +49,9 @@
                     <a href="#" {{ stimulus_action('musicControl', 'play')}} >
                         <i class="fas fa-play me-3"></i>
                     </a>
+                    <a href="#" {{ stimulus_action('musicControl', 'pause')}} >
+                        <i class="fas fa-pause me-3"></i>
+                    </a>
                     <span class="song-details">{{ track.Artist }} - {{ track.Titre }}</span>
                     <a href="#">
                         <i class="fas fa-bars mx-3"></i>
@@ -59,6 +62,9 @@
                 </div>
             </div>
             {% endfor %}
+            {# <audio controls autoplay>
+                <source src="0248TN.mp3" type="audio/mpeg">
+            </audio> #}
             <button type="button" class="btn btn-success"><i class="fas fa-plus"></i> Ajouter music </button>
         </div>
     </div>

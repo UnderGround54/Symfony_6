@@ -14,7 +14,7 @@ class MusicsApiController extends AbstractController{
         $musics = [
             'id' => $id,
             'name' => 'Music Slow',
-            'url' => 'https://symfonycasts.s3.amazonaws.com/sample.mp3'
+            'url' => '0248TN.mp3',
         ];
 
         $logger->info('API music id : {musics}', [ 
